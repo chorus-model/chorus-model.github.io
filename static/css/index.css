@@ -1,0 +1,513 @@
+body {
+  font-family: 'Avenir', sans-serif;
+  /* bulma.min.css in this repo ships a buggy `body{font-size:10em}`; reset to a sane base. */
+  font-size: 1rem;
+}
+
+.scroll-element {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+/* Bulma's default footer has 6rem bottom padding, leaving a tall gray band
+   below the text. Even it out. */
+.footer {
+    padding-bottom: 3rem;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Avenir', sans-serif;
+}
+
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Avenir', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Avenir', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+
+.interpolation-panel {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.interpolation-video-column {
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+/* ===================== CHORUS refinements ===================== */
+
+/* Plain white title section; purple accent carried by the action buttons. */
+.hero {
+  background: #fff;
+}
+.author-link {
+  color: hsl(0, 0%, 33%);
+  font-weight: 450;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(157, 78, 221, 0.45);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.author-link:hover {
+  color: #9d4edd;
+  border-bottom-color: #9d4edd;
+}
+.hero .publication-links .button.is-dark {
+  background-color: #9d4edd;
+  border-color: #9d4edd;
+}
+.hero .publication-links .button.is-dark:hover {
+  background-color: #8b3fd1;
+  border-color: #8b3fd1;
+}
+
+/* ---- Left-side section progress nav ---- */
+#section-progress {
+  position: fixed;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+  z-index: 30;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding-left: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+#section-progress.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+#section-progress .sp-track {
+  position: relative;
+  width: 2px;
+  align-self: stretch;
+  background: rgba(0, 0, 0, 0.10);
+  border-radius: 2px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+#section-progress .sp-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: #9d4edd;
+  border-radius: 2px;
+  transition: height 0.3s ease;
+}
+#section-progress .sp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+#section-progress .sp-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #888;
+  text-decoration: none;
+  line-height: 1;
+}
+#section-progress .sp-dot {
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #c4c4c4;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+#section-progress .sp-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: normal;
+  max-width: 140px;
+  color: #777;
+  opacity: 1;
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  pointer-events: none;
+}
+#section-progress .sp-item:hover .sp-dot {
+  border-color: #9d4edd;
+  transform: scale(1.15);
+}
+#section-progress .sp-item.is-active .sp-dot {
+  background: #9d4edd;
+  border-color: #9d4edd;
+}
+#section-progress .sp-item.is-active .sp-label {
+  opacity: 1;
+  transform: translateX(0);
+  color: #9d4edd;
+}
+/* When the content column nears the viewport edges there's no margin left for
+   the labels, so collapse to a dots-only rail and only reveal a label (as a
+   floating chip) for the item being hovered. */
+@media screen and (max-width: 1215px) {
+  #section-progress { left: 14px; }
+  /* No room in the margin here: collapse to dots, reveal a label only on hover. */
+  #section-progress .sp-label {
+    max-width: 200px;
+    padding: 3px 9px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+  #section-progress .sp-item:hover .sp-label {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@media screen and (max-width: 768px) {
+  #section-progress { display: none; }
+}
+
+/* Header video lives in its own clean white section below the title. */
+.header-video-section {
+  background: #fff;
+  padding-top: 1.5rem;
+}
+
+/* More breathing room between the CHORUS title and the subheading. */
+.hero .publication-title {
+  margin-bottom: 1.75rem !important;
+}
+
+/* More space between section/sub headers and their following text. */
+.section .title.is-3 {
+  font-size: 2.2rem;        /* sized to read like the CHORUS title */
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+/* Purple accent bar trailing horizontally to the right of each section title. */
+.section .title.is-3::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 4px;
+  margin-left: 0.9rem;
+  border-radius: 4px;
+  background: #9d4edd;
+}
+.section .title.is-4 {
+  margin-top: 2.5rem;
+  margin-bottom: 1.1rem;
+}
+
+/* Consistent width for graphs and video panels so the media column lines up. */
+.media-block {
+  display: block;
+  max-width: 760px;
+  width: 100%;
+  margin: 0.75rem auto 0.5rem auto;
+}
+
+/* Full-width figure that spans the container, with a little breathing room. */
+.media-full {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 1.4rem auto;
+}
+
+/* Bar-chart graphs are smaller than the video/figure column. */
+.result-graph {
+  display: block;
+  max-width: 440px;
+  width: 100%;
+  margin: 0.75rem auto 0.5rem auto;
+}
+
+/* Tighter vertical rhythm so the page packs more into each screen. */
+.section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.content p:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+/* Each real-world task: description pinned beside its videos in one row. */
+.task-row {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+/* A thin rule between consecutive tasks, matching the Results dividers. */
+.task-row + .task-row {
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+  padding-top: 1.6rem;
+  margin-top: 1.4rem;
+}
+.task-row .task-desc {
+  padding-right: 1.2rem;
+}
+.task-row .task-desc .title.is-5 {
+  margin-bottom: 0.5rem;
+}
+.task-row .task-desc p {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #444;
+  text-align: left;
+}
+.vid-cap {
+  margin-top: 6px;
+  font-size: 0.98rem;
+  color: #555;
+}
+
+/* Results: text beside a legible graph, with a slim filmstrip of clips below. */
+.result-row {
+  margin-top: 1.6rem;
+  margin-bottom: 0.3rem;
+}
+/* A thin rule above each finding (after the first) delineates the subsections. */
+.result-row:not(:first-of-type) {
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+  padding-top: 1.8rem;
+}
+/* A closing rule below the final finding (4). */
+.result-row:last-of-type {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  padding-bottom: 1.8rem;
+}
+.result-row .result-graph {
+  max-width: 340px;
+  margin: 0 auto;
+}
+.result-row .title.is-5 {
+  margin-bottom: 0.5rem;
+}
+.result-row-text p {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #444;
+}
+/* Supporting clips fan out to span the full width, at a uniform height. */
+.clip-strip {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin: 0.4rem auto 0.5rem auto;
+}
+.clip-strip .clip {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  text-align: center;
+}
+.clip-strip .clip video {
+  width: 100%;
+  height: 230px;            /* uniform height across every results clip */
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+.interpolation-panel {
+  margin: 0.25rem auto;
+  padding: 0.25rem;         /* trim the chunky padding around the videos */
+}
+.interpolation-panel .column {
+  padding: 0.4rem;
+}
+.interpolation-panel video {
+  display: block;
+}
+
+/* Crop sibling videos to a shared aspect ratio so they render the same size.
+   Pair with an aspect modifier (.crop-43 / .crop-1610 / .crop-75). */
+.crop-match {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+}
+.crop-43   { aspect-ratio: 4 / 3; }
+.crop-1610 { aspect-ratio: 16 / 10; }
+.crop-75   { aspect-ratio: 7 / 5; }
+
+/* Results layout: explanatory text + graph paired in one neutral card
+   (vertically centered so the uneven heights read as intentional);
+   the video panel spans the full width below. */
+.result-card {
+  background: #fff;
+  border: 1px solid rgba(157, 78, 221, 0.14);
+  border-radius: 18px;
+  padding: 1.25rem 1.9rem;
+  margin: 0.5rem auto 1.4rem auto;
+  box-shadow: 0 8px 26px rgba(125, 63, 209, 0.10);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.result-card:hover {
+  box-shadow: 0 12px 32px rgba(125, 63, 209, 0.16);
+  transform: translateY(-2px);
+}
+.result-card .content {
+  margin-bottom: 0;
+}
+.result-card .result-graph {
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+/* Stack text above the graph on narrow screens. */
+@media screen and (max-width: 768px) {
+  .result-card {
+    padding: 1rem 1.25rem;
+  }
+  .result-card .result-graph {
+    max-width: 300px;
+    margin-top: 0.5rem;
+  }
+}

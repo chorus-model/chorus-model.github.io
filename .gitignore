@@ -1,0 +1,38 @@
+# ===== macOS =====
+.DS_Store
+
+# ===== Large local-only video masters (web versions live in static/videos/) =====
+*.mov
+
+# ===== Unused source / build artifacts not served by the site =====
+
+# CSS source map (not linked)
+static/css/bulma.css.map.txt
+
+# Unlinked Bulma JS (site only uses fontawesome.all.min.js + index.js)
+static/js/bulma-carousel.js
+static/js/bulma-carousel.min.js
+static/js/bulma-slider.js
+static/js/bulma-slider.min.js
+
+# Unused images (site only uses favicon.png)
+static/images/baseline.png
+static/images/favicon.svg
+static/images/graph.png
+static/images/new_teaser.png
+
+# Figure sources: ignore all PDFs, the bib, and the working view crops
+static/figures/*.pdf
+static/figures/*.bib
+static/figures/views/
+
+# Figure PNG exports: ignore everything except the four used on the site
+static/figures/png/*
+!static/figures/png/figure2.png
+!static/figures/png/graph-1.png
+!static/figures/png/graph-2-2.png
+!static/figures/png/perturb-graph.png
+
+# Unused video sets and extra clips
+static/videos/fast-4x/
+static/videos/web/5-top-good.mp4
