@@ -55,7 +55,7 @@
 
           <div class="publication-links">
             <span class="link-block">
-              <a href="./chorus-release1.pdf" target="_blank"
+              <a href="./paper.pdf" target="_blank"
                  class="external-link button is-normal is-rounded is-dark">
                 <span class="icon" style="color:#f5f3f3"><i class="fas fa-file-pdf"></i></span>
                 <span style="color:#f5f3f3">Paper</span>
@@ -80,9 +80,13 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column has-text-centered">
+        <div class="narration-toggle" role="group" aria-label="Narration option">
+          <button type="button" class="narr-btn is-active" data-mode="none">No narration</button>
+          <button type="button" class="narr-btn" data-mode="narrated">Narrated</button>
+        </div>
         <video preload="auto" id="home_vid" controls muted autoplay playsinline
                width="100%" height="100%">
-          <source src="./static/videos/final-chorus-vid-compressed.mp4" type="video/mp4">
+          <source id="home_vid_src" src="./static/videos/web/chorus-nonarration.mp4" type="video/mp4">
         </video>
         <br><br>
         <h2 class="subtitle has-text-centered scroll-element">
@@ -256,8 +260,8 @@
         </p>
       </div>
       <div class="column">
-        <div class="interpolation-panel has-text-centered">
-          <video class="autoloop" autoplay muted loop playsinline controls width="100%">
+        <div class="interpolation-panel has-text-centered three-robot-panel">
+          <video class="autoloop three-robot-vid" autoplay muted loop playsinline controls width="100%">
             <source src="./static/videos/web/5-three-robot-combined.mp4" type="video/mp4">
           </video>
           <div class="columns is-mobile" style="margin-top:-0.25rem;">
@@ -412,6 +416,30 @@
       if (p && p.catch) { p.catch(function () {}); }
     });
   }
+
+  // ---- Header video narration toggle --------------------------------------
+  (function () {
+    var vid = document.getElementById('home_vid');
+    var src = document.getElementById('home_vid_src');
+    if (!vid || !src) return;
+    var SOURCES = {
+      none: './static/videos/web/chorus-nonarration.mp4',
+      narrated: './static/videos/web/chorus-narrated-release.mp4'
+    };
+    var buttons = Array.prototype.slice.call(document.querySelectorAll('.narr-btn'));
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var mode = btn.getAttribute('data-mode');
+        if (src.getAttribute('src') === SOURCES[mode]) return;
+        buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
+        src.setAttribute('src', SOURCES[mode]);
+        vid.muted = (mode === 'none');   // narrated plays with sound (user gesture)
+        vid.load();
+        var p = vid.play();
+        if (p && p.catch) { p.catch(function () {}); }
+      });
+    });
+  })();
 
   // ---- Left-side section progress nav --------------------------------------
   (function () {

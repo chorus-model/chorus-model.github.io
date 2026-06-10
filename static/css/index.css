@@ -477,6 +477,40 @@ body {
 .crop-1610 { aspect-ratio: 16 / 10; }
 .crop-75   { aspect-ratio: 7 / 5; }
 
+/* Header video: narration / no-narration text toggle (kept understated). */
+.narration-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+}
+.narr-btn {
+  border: none;
+  background: transparent;
+  color: hsl(0, 0%, 60%);
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 0.82rem;
+  padding: 0.1rem 0.15rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.narr-btn + .narr-btn { border-left: 1px solid hsl(0, 0%, 82%); padding-left: 0.65rem; }
+.narr-btn:hover { color: hsl(0, 0%, 40%); }
+.narr-btn.is-active {
+  color: #9d4edd;
+  font-weight: 600;
+}
+
+/* Three-robot move: inset the full-width clip so it reads framed,
+   matching the breathing room around the tape-measure videos. */
+.three-robot-panel {
+  padding: 0.25rem 1.6rem;
+}
+.three-robot-vid {
+  border-radius: 6px;
+}
+
 /* Results layout: explanatory text + graph paired in one neutral card
    (vertically centered so the uneven heights read as intentional);
    the video panel spans the full width below. */
