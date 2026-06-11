@@ -308,8 +308,32 @@ body {
     transform: translateX(0);
   }
 }
-@media screen and (max-width: 768px) {
-  #section-progress { display: none; }
+/* Below 1024px Bulma's container stops being a centered 960px column, so the
+   content text fills the viewport and there's no room for the labels. Keep just
+   the dots rail visible (it tucks into the gutter), and reveal the full labelled
+   menu — as a floating panel — only when the user hovers it. Above 1024px the
+   margin exists, so the rail stays visible as before. */
+@media screen and (max-width: 1023px) {
+  #section-progress {
+    left: 0;
+    gap: 12px;
+    padding: 14px 16px 14px 10px;   /* enlarge the hover target */
+    border-radius: 0 10px 10px 0;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+  }
+  /* Dots stay put; only the labels and panel backdrop appear on hover. */
+  #section-progress:hover {
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.16);
+  }
+  /* On hover show every label inline (not just the one under the cursor). */
+  #section-progress:hover .sp-label {
+    opacity: 1;
+    transform: none;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
 }
 
 /* Header video lives in its own clean white section below the title. */
