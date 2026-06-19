@@ -303,6 +303,12 @@ body {
     opacity: 0;
     transform: translateX(-4px);
   }
+  /* The active section's label is shown by default (line ~286); collapse it too
+     here so only dots remain, but keep it revealable when the rail is hovered. */
+  #section-progress:not(:hover) .sp-item.is-active .sp-label {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
   #section-progress .sp-item:hover .sp-label {
     opacity: 1;
     transform: translateX(0);
@@ -333,6 +339,16 @@ body {
     background: none;
     box-shadow: none;
     padding: 0;
+  }
+}
+
+/* Once the container goes fluid (Bulma's ≤1023px breakpoint) the content fills
+   the viewport and would slide under the fixed dots rail. Reserve a left gutter
+   wide enough to always clear the rail (dots + their padding ≈ 35px). */
+@media screen and (max-width: 1023px) {
+  .section,
+  .hero .hero-body {
+    padding-left: 68px;
   }
 }
 
