@@ -327,6 +327,15 @@ body {
   padding-top: 1.5rem;
 }
 
+/* Use Avenir Next's true Demi Bold face for headings and the conference line. */
+.hero .publication-title,
+.hero h2.subtitle,
+.publication-conference,
+.section .title {
+  font-family: 'Avenir Next', 'Avenir', sans-serif;
+  font-weight: 600;
+}
+
 /* More breathing room between the CHORUS title and the subheading. */
 .hero .publication-title {
   margin-bottom: 1.75rem !important;
